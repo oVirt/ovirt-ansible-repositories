@@ -1,0 +1,12 @@
+---
+- name: Creating folder to backup repositories files
+  file:
+    path: "{{ ovirt_repositories_repos_backup_path }}"
+    state: directory
+  tags: backup
+
+- name: Copy current repositories files to backup folder
+  shell: "cp /etc/yum.repos.d/*.repo {{ ovirt_repositories_repos_backup_path }}"
+  tags:
+    - skip_ansible_lint
+    - backup
