@@ -1,0 +1,11 @@
+---
+- name: Backup current repositories
+  include_tasks: backup-repos.yml
+
+- name: Setup repositories using Subscription Manager
+  include_tasks: rh-subscription.yml
+  when: ovirt_repositories_use_subscription_manager == True
+
+- name: Setup repositories using oVirt release package
+  include_tasks: rpm.yml
+  when: ovirt_repositories_use_subscription_manager == False

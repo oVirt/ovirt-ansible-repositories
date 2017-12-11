@@ -1,0 +1,7 @@
+---
+- name: Register and subscribe to multiple pools.
+  redhat_subscription:
+    state: present
+    username: "{{ ovirt_repositories_rh_username | mandatory }}"
+    password: "{{ ovirt_repositories_rh_password | mandatory }}"
+    pool_ids: "{{ ovirt_repositories_pool_ids }}"
