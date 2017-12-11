@@ -17,8 +17,7 @@ Role Variables
 | Name                                       | Default value         |  Description                              |
 |--------------------------------------------|-----------------------|-------------------------------------------|
 | ovirt_repositories_ovirt_release_rpm       | UNDEF                 | URL of oVirt release package, which contains required repositories configuration. |
-| ovirt_repositories_use_subscription_manager| False                 | If true it will use repos from subscription manager and the
-                                                                       value of ovirt_repositories_ovirt_release_rpm will be ignored |
+| ovirt_repositories_use_subscription_manager| False                 | If true it will use repos from subscription manager and the value of ovirt_repositories_ovirt_release_rpm will be ignored |
 | ovirt_repositories_rh_username             | UNDEF                 | Username to use for subscription manager. |
 | ovirt_repositories_rh_password             | UNDEF                 | Password to use for subscription manager. |
 | ovirt_repositories_pool_ids                | UNDEF                 | List of pools ids to subscribe to. |
