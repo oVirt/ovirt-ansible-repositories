@@ -1,4 +1,9 @@
 ---
+- name: Perform parameter compatibility check
+  fail:
+    msg: "Subcription manager could be used only on Red Hat Enterprise Linux"
+  when: ovirt_repositories_use_subscription_manager == True and not (ansible_distribution == 'RedHat')
+
 - name: Backup current repositories
   include_tasks: backup-repos.yml
 
