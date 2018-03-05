@@ -5,3 +5,10 @@
     username: "{{ ovirt_repositories_rh_username | mandatory }}"
     password: "{{ ovirt_repositories_rh_password | mandatory }}"
     pool_ids: "{{ ovirt_repositories_pool_ids }}"
+
+- name: Include target/version specific variables.
+  include_vars: "{{ ovirt_repositories_target_host }}_{{ ovirt_repositories_ovirt_version }}.yml"
+
+- name: Enable required repositories.
+  command: "subscription-manager repos --enable={{ item }}"
+  with_items: "{{ ovirt_repositories_subscription_manager_repos }}"
