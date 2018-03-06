@@ -22,7 +22,7 @@ Role Variables
 | ovirt_repositories_target_host             | engine                | Type of the target machine, which should be one of [engine, host]. This parameter takes effect only in case ovirt_repositories_use_subscription_manager is set to True. |
 | ovirt_repositories_rh_username             | UNDEF                 | Username to use for subscription manager. |
 | ovirt_repositories_rh_password             | UNDEF                 | Password to use for subscription manager. |
-| ovirt_repositories_pool_ids                | UNDEF                 | List of pools ids to subscribe to. |
+| ovirt_repositories_pool_ids                | UNDEF                 | List of pools ids to subscribe to. If not set the role will consume subscriptions matching `Red Hat Virtualization`. |
 | ovirt_repositories_repos_backup_path       | /tmp/repo-backup-{{timestamp}} | Directory to backup the original repositories configuration
 
 

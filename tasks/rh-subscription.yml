@@ -1,10 +1,19 @@
 ---
-- name: Register and subscribe to multiple pools.
+- name: Register and subscribe to multiple pool IDs.
   redhat_subscription:
     state: present
     username: "{{ ovirt_repositories_rh_username | mandatory }}"
     password: "{{ ovirt_repositories_rh_password | mandatory }}"
     pool_ids: "{{ ovirt_repositories_pool_ids }}"
+  when:  ovirt_repositories_pool_ids is defined
+
+- name: Use default subscription pool name for Red Hat Virtualization.
+  redhat_subscription:
+    state: present
+    username: "{{ ovirt_repositories_rh_username | mandatory }}"
+    password: "{{ ovirt_repositories_rh_password | mandatory }}"
+    pool: '^Red Hat Virtualization$'
+  when:  ovirt_repositories_pool_ids is not defined
 
 - name: Include target/version specific variables.
   include_vars: "{{ ovirt_repositories_target_host }}_{{ ovirt_repositories_ovirt_version }}.yml"
