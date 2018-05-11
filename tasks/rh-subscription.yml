@@ -7,7 +7,7 @@
 - name: Register and subscribe to multiple pool IDs.
   redhat_subscription:
     state: present
-    force_register: "{{ ovirt_repositories_rh_force_register }}"
+    force_register: "{{ ovirt_repositories_force_register }}"
     username: "{{ ovirt_repositories_rh_username | mandatory }}"
     password: "{{ ovirt_repositories_rh_password | mandatory }}"
     pool_ids: "{{ ovirt_repositories_pool_ids }}"
@@ -16,7 +16,7 @@
 - name: Use default subscription pool name for Red Hat Virtualization.
   redhat_subscription:
     state: present
-    force_register: "{{ ovirt_repositories_rh_force_register }}"
+    force_register: "{{ ovirt_repositories_force_register }}"
     username: "{{ ovirt_repositories_rh_username | mandatory }}"
     password: "{{ ovirt_repositories_rh_password | mandatory }}"
     pool: '^Red Hat Virtualization$'
