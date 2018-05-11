@@ -1,4 +1,9 @@
 ---
+- name: Ensure subscription-manager package is installed
+  yum:
+    name: subscription-manager
+    state: present
+
 - name: Register and subscribe to multiple pool IDs.
   redhat_subscription:
     state: present
