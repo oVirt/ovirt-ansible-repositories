@@ -24,6 +24,7 @@ Role Variables
 | ovirt_repositories_rh_password             | UNDEF                 | Password to use for subscription manager. |
 | ovirt_repositories_pool_ids                | UNDEF                 | List of pools ids to subscribe to. If not set the role will consume subscriptions matching `Red Hat Virtualization`. |
 | ovirt_repositories_repos_backup_path       | /tmp/repo-backup-{{timestamp}} | Directory to backup the original repositories configuration
+| ovirt_repositories_force_register          | False                 | Bool to register the system even if it is already registered.
 
 
 Dependencies
@@ -54,6 +55,7 @@ Example Playbook
 
   vars:
     ovirt_repositories_use_subscription_manager: True
+    ovirt_repositories_force_register: True
     ovirt_repositories_rh_username: "{{ovirt_repositories_rh_username}}"
     ovirt_repositories_rh_password: "{{ovirt_repositories_rh_password}}"
     # The following pool IDs are not valid and should be replaced.
