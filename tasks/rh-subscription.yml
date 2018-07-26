@@ -1,6 +1,6 @@
 ---
 - name: Ensure subscription-manager package is installed
-  yum:
+  package:
     name: subscription-manager
     state: present
 
@@ -11,20 +11,28 @@
     username: "{{ ovirt_repositories_rh_username | mandatory }}"
     password: "{{ ovirt_repositories_rh_password | mandatory }}"
     pool_ids: "{{ ovirt_repositories_pool_ids }}"
+    server_hostname: "{{ ovirt_repositories_rhsm_server_hostname }}"
   when:  ovirt_repositories_pool_ids is defined
 
-- name: Use default subscription pool name for Red Hat Virtualization.
+- name: Use default subscription pool name for Red Hat Virtualization
   redhat_subscription:
     state: present
     force_register: "{{ ovirt_repositories_force_register }}"
     username: "{{ ovirt_repositories_rh_username | mandatory }}"
     password: "{{ ovirt_repositories_rh_password | mandatory }}"
     pool: '^Red Hat Virtualization$'
+    server_hostname: "{{ ovirt_repositories_rhsm_server_hostname }}"
   when:  ovirt_repositories_pool_ids is not defined
 
-- name: Include target/version specific variables.
-  include_vars: "{{ ovirt_repositories_target_host }}_{{ ovirt_repositories_ovirt_version }}.yml"
+- name: Include target/version specific variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ovirt_repositories_target_host }}_{{ ovirt_repositories_ovirt_version }}.yml"
+    - "default.yml"
+  when: ovirt_repositories_subscription_manager_repos is not defined
 
-- name: Enable required repositories.
-  command: "subscription-manager repos --enable={{ item }}"
-  with_items: "{{ ovirt_repositories_subscription_manager_repos }}"
+- name: Enable required repositories
+  rhsm_repository:
+    name: "{{ item }}"
+    state: "enabled"
+  with_items: "{{ ovirt_repositories_subscription_manager_repos | default([]) }}"
