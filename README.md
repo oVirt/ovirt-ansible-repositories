@@ -8,8 +8,7 @@ oVirt engine or host installation. By default it copies content of
 Requirements
 ------------
 
- * oVirt Python SDK version 4
- * Ansible version 2.4
+ * Ansible version 2.5
 
 Role Variables
 --------------
@@ -17,14 +16,15 @@ Role Variables
 | Name                                       | Default value         |  Description                              |
 |--------------------------------------------|-----------------------|-------------------------------------------|
 | ovirt_repositories_ovirt_release_rpm       | UNDEF                 | URL of oVirt release package, which contains required repositories configuration. |
-| ovirt_repositories_use_subscription_manager| False                 | If true it will use repos from subscription manager and the value of ovirt_repositories_ovirt_release_rpm will be ignored |
-| ovirt_repositories_ovirt_version           | 4.2                   | oVirt release version (Supported versions [4.1, 4.2]). Will be used to enable the required repositories in case ovirt_repositories_use_subscription_manager is set. |
-| ovirt_repositories_target_host             | engine                | Type of the target machine, which should be one of [engine, host]. This parameter takes effect only in case ovirt_repositories_use_subscription_manager is set to True. |
+| ovirt_repositories_use_subscription_manager| False                 | If true it will use repos from subscription manager and the value of <i>ovirt_repositories_ovirt_release_rpm</i> will be ignored. |
+| ovirt_repositories_ovirt_version           | 4.2                   | oVirt release version (Supported versions [4.1, 4.2]). Will be used to enable the required repositories in case <i>ovirt_repositories_use_subscription_manager</i> is set. |
+| ovirt_repositories_target_host             | engine                | Type of the target machine, which should be one of [engine, host]. This parameter takes effect only in case <i>ovirt_repositories_use_subscription_manager</i> is set to True. If incorrect version or target is specified no repositories are enabled. |
 | ovirt_repositories_rh_username             | UNDEF                 | Username to use for subscription manager. |
 | ovirt_repositories_rh_password             | UNDEF                 | Password to use for subscription manager. |
 | ovirt_repositories_pool_ids                | UNDEF                 | List of pools ids to subscribe to. If not set the role will consume subscriptions matching `Red Hat Virtualization`. |
-| ovirt_repositories_repos_backup_path       | /tmp/repo-backup-{{timestamp}} | Directory to backup the original repositories configuration
-| ovirt_repositories_force_register          | False                 | Bool to register the system even if it is already registered.
+| ovirt_repositories_repos_backup_path       | /tmp/repo-backup-{{timestamp}} | Directory to backup the original repositories configuration |
+| ovirt_repositories_force_register          | False                 | Bool to register the system even if it is already registered. |
+| ovirt_repositories_rhsm_server_hostname    | UNDEF                 | Hostname of the RHSM server. By default it's used from rhsm configuration. |
 
 
 Dependencies
