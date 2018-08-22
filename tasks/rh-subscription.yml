@@ -11,7 +11,7 @@
     username: "{{ ovirt_repositories_rh_username | mandatory }}"
     password: "{{ ovirt_repositories_rh_password | mandatory }}"
     pool_ids: "{{ ovirt_repositories_pool_ids }}"
-    server_hostname: "{{ ovirt_repositories_rhsm_server_hostname }}"
+    server_hostname: "{{ ovirt_repositories_rhsm_server_hostname | default(omit) }}"
   when:  ovirt_repositories_pool_ids is defined
 
 - name: Use default subscription pool name for Red Hat Virtualization
@@ -21,7 +21,7 @@
     username: "{{ ovirt_repositories_rh_username | mandatory }}"
     password: "{{ ovirt_repositories_rh_password | mandatory }}"
     pool: '^Red Hat Virtualization$'
-    server_hostname: "{{ ovirt_repositories_rhsm_server_hostname }}"
+    server_hostname: "{{ ovirt_repositories_rhsm_server_hostname | default(omit) }}"
   when:  ovirt_repositories_pool_ids is not defined
 
 - name: Include target/version specific variables
