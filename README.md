@@ -21,7 +21,8 @@ Role Variables
 | ovirt_repositories_target_host             | engine                | Type of the target machine, which should be one of [engine, host]. This parameter takes effect only in case <i>ovirt_repositories_use_subscription_manager</i> is set to True. If incorrect version or target is specified no repositories are enabled. |
 | ovirt_repositories_rh_username             | UNDEF                 | Username to use for subscription manager. |
 | ovirt_repositories_rh_password             | UNDEF                 | Password to use for subscription manager. |
-| ovirt_repositories_pool_ids                | UNDEF                 | List of pools ids to subscribe to. If not set the role will consume subscriptions matching `Red Hat Virtualization`. |
+| ovirt_repositories_pool_ids                | UNDEF                 | List of pools ids to subscribe to. |
+| ovirt_repositories_pools                   | UNDEF                 | Specify a list of subscription pool names. Use <i>ovirt_repositories_pool_ids</i> instead if possible, as it is much faster. |
 | ovirt_repositories_repos_backup_path       | /tmp/repo-backup-{{timestamp}} | Directory to backup the original repositories configuration |
 | ovirt_repositories_force_register          | False                 | Bool to register the system even if it is already registered. |
 | ovirt_repositories_rhsm_server_hostname    | UNDEF                 | Hostname of the RHSM server. By default it's used from rhsm configuration. |
@@ -62,6 +63,21 @@ Example Playbook
     ovirt_repositories_pool_ids:
       - 0123456789abcdef0123456789abcdef
       - 1123456789abcdef0123456789abcdef
+
+  roles:
+    - role: oVirt.repositories
+
+
+- name: Setup repositories using Subscription Manager pool name
+  hosts: localhost
+
+  vars:
+    ovirt_repositories_use_subscription_manager: True
+    ovirt_repositories_force_register: True
+    ovirt_repositories_rh_username: "{{ovirt_repositories_rh_username}}"
+    ovirt_repositories_rh_password: "{{ovirt_repositories_rh_password}}"
+    ovirt_repositories_pools:
+      - "Red Hat Cloud Infrastructure, Premium (2-sockets)"
 
   roles:
     - role: oVirt.repositories
