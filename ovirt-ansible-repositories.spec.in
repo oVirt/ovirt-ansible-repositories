@@ -38,5 +38,10 @@ sh build.sh install
 %license LICENSE
 
 %changelog
+* Tue Sep 18 2018 Ondra Machacek <omachace@redhat.com> - 1.1.2-1
+- Add ovirt_repositories_pools var.
+- Ensure subscription-manager package is present.
+- Add force_register option.
+
 * Thu Dec 07 2017 Katerina Koukiou <kkoukiou@redhat.com> - 1.1.0-1
 - Initial release
