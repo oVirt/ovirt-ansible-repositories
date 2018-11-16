@@ -1,9 +1,27 @@
 oVirt Repositories
 ==================
 
-The `oVirt.repositories` role is used to set the repositories required for
+The `ovirt.repositories` role is used to set the repositories required for
 oVirt engine or host installation. By default it copies content of
 /etc/yum.repos.d/ to /tmp/repo-backup-{{timestamp}}, so it's easy to undo that operation.
+
+Note
+----
+Please note that when installing this role from Ansible Galaxy you are instructed to run following command:
+
+```bash
+$ ansible-galaxy install ovirt.repositories
+```
+
+This will download the role to the directory with the same name as you specified on the
+command line, in this case `ovirt.repositories`. But note that it is case sensitive, so if you specify
+for example `OVIRT.repositories` it will download the same role, but it will add it to the directory named
+`OVIRT.repositories`, so you later always have to use this role with upper case prefix. So be careful how
+you specify the name of the role on command line.
+
+For the RPM installation we install three legacy names `oVirt.repositories`, `ovirt.repositories` and `ovirt-repositories`.
+So you can use any of these names. This documentation and examples in this repository are using name `ovirt.repositories`.
+`oVirt.repositories` and `ovirt-repositories` role names are deprecated.
 
 Requirements
 ------------
@@ -45,7 +63,7 @@ Example Playbook
     ovirt_repositories_ovirt_release_rpm: http://resources.ovirt.org/pub/yum-repo/ovirt-master-release.rpm
 
   roles:
-    - role: oVirt.repositories
+    - role: ovirt.repositories
 
 - vars_files:
     # Contains encrypted `username` and `password` variables using ansible-vault
@@ -65,7 +83,7 @@ Example Playbook
       - 1123456789abcdef0123456789abcdef
 
   roles:
-    - role: oVirt.repositories
+    - role: ovirt.repositories
 
 
 - name: Setup repositories using Subscription Manager pool name
@@ -80,7 +98,7 @@ Example Playbook
       - "Red Hat Cloud Infrastructure, Premium (2-sockets)"
 
   roles:
-    - role: oVirt.repositories
+    - role: ovirt.repositories
 ```
 
 License

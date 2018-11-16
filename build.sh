@@ -4,7 +4,7 @@ VERSION="1.1.3"
 MILESTONE=master
 RPM_RELEASE="0.1.$MILESTONE.$(date -u +%Y%m%d%H%M%S)"
 
-ROLE_NAME="oVirt.repositories"
+ROLE_NAME="ovirt.repositories"
 PACKAGE_NAME="ovirt-ansible-repositories"
 PREFIX=/usr/local
 DATAROOT_DIR=$PREFIX/share
@@ -13,6 +13,7 @@ DOC_DIR=$DATAROOT_DIR/doc
 PKG_DATA_DIR=${PKG_DATA_DIR:-$ROLES_DATAROOT_DIR/$PACKAGE_NAME}
 PKG_DATA_DIR_ORIG=${PKG_DATA_DIR_ORIG:-$PKG_DATA_DIR}
 PKG_DOC_DIR=${PKG_DOC_DIR:-$DOC_DIR/$PACKAGE_NAME}
+ROLENAME_LEGACY_UPPERCASE="${ROLENAME_LEGACY_UPPERCASE:-$ROLES_DATAROOT_DIR/oVirt.repositories}"
 
 RPM_VERSION=$VERSION
 PACKAGE_VERSION=$VERSION
@@ -38,6 +39,9 @@ install() {
   echo "Installing data..."
   mkdir -p $PKG_DATA_DIR
   mkdir -p $PKG_DOC_DIR
+
+  # Create a symlink, so legacy role name does work with upper case:
+  ln -f -s $PKG_DATA_DIR_ORIG $ROLENAME_LEGACY_UPPERCASE
 
   cp -pR defaults/ $PKG_DATA_DIR
   cp -pR tasks/ $PKG_DATA_DIR
