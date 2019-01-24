@@ -4,4 +4,4 @@ ovirt_repositories_subscription_manager_repos:
   - rhel-7-server-rhv-4.2-manager-rpms
   - rhel-7-server-rhv-4-manager-tools-rpms
   - rhel-7-server-ansible-2-rpms
-  - jb-eap-7-for-rhel-7.2-server-rpms
+  - jb-eap-7.2-for-rhel-7-server-rpms
