@@ -51,6 +51,9 @@ sh build.sh install
 %license LICENSE
 
 %changelog
+* Tue Feb 19 2019 Ondra Machacek <omachace@redhat.com> - 1.1.5-1
+- Add 4.3 repositories
+
 * Wed Jan 23 2019 Ondra Machacek <omachace@redhat.com> - 1.1.4-1
 - Add correct JBoss channel.
 
