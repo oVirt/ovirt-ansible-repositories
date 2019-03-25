@@ -19,6 +19,7 @@
     dest: "{{ ovirt_repositories_repos_backup_path }}"
     remote_src: yes
   with_items: "{{ files_to_backup.files }}"
+  ignore_errors: yes
   tags:
     - skip_ansible_lint
     - backup
