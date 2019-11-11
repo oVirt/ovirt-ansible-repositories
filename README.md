@@ -26,7 +26,7 @@ So you can use any of these names. This documentation and examples in this repos
 Requirements
 ------------
 
- * Ansible version 2.5
+ * Ansible version 2.9
 
 Role Variables
 --------------
