@@ -2,7 +2,7 @@
 - name: Perform parameter compatibility check
   fail:
     msg: "Subcription manager could be used only on Red Hat Enterprise Linux"
-  when: ovirt_repositories_use_subscription_manager == True and not (ansible_distribution == 'RedHat')
+  when: ovirt_repositories_use_subscription_manager and not (ansible_distribution == 'RedHat')
 
 - name: Backup current repositories
   include_tasks: backup-repos.yml
@@ -14,8 +14,8 @@
 
 - name: Setup repositories using Subscription Manager
   include_tasks: rh-subscription.yml
-  when: ovirt_repositories_use_subscription_manager | bool == True
+  when: ovirt_repositories_use_subscription_manager | bool
 
 - name: Setup repositories using oVirt release package
   include_tasks: rpm.yml
-  when: ovirt_repositories_use_subscription_manager | bool == False
+  when: not ovirt_repositories_use_subscription_manager | bool
