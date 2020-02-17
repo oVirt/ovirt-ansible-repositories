@@ -18,12 +18,6 @@
     name: subscription-manager
     state: present
 
-- name: Disable all repositories
-  redhat_subscription:
-    state: absent
-    pool_ids: "*"
-  when: ovirt_repositories_clear is defined and ovirt_repositories_clear
-
 - name: Register and subscribe to multiple pool IDs
   redhat_subscription:
     state: present
@@ -50,6 +44,12 @@
     - "{{ ovirt_repositories_target_host }}_{{ ovirt_repositories_ovirt_version }}.yml"
     - "default.yml"
   when: ovirt_repositories_subscription_manager_repos is not defined
+
+- name: Disable all repositories
+  rhsm_repository:
+    state: absent
+    name: "*"
+  when: ovirt_repositories_clear
 
 - name: Enable required repositories
   rhsm_repository:
