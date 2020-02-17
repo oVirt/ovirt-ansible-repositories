@@ -18,6 +18,12 @@
     name: subscription-manager
     state: present
 
+- name: Disable all repositories
+  redhat_subscription:
+    state: absent
+    pool_ids: "*"
+  when: ovirt_repositories_clear is defined and ovirt_repositories_clear
+
 - name: Register and subscribe to multiple pool IDs
   redhat_subscription:
     state: present
