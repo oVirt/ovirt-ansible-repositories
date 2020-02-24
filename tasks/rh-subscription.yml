@@ -45,6 +45,12 @@
     - "default.yml"
   when: ovirt_repositories_subscription_manager_repos is not defined
 
+- name: Disable all repositories
+  rhsm_repository:
+    state: absent
+    name: "*"
+  when: ovirt_repositories_clear
+
 - name: Enable required repositories
   rhsm_repository:
     name: "{{ item }}"

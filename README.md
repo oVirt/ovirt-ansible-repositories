@@ -44,6 +44,7 @@ Role Variables
 | ovirt_repositories_repos_backup_path       | /tmp/repo-backup-{{timestamp}} | Directory to backup the original repositories configuration |
 | ovirt_repositories_force_register          | False                 | Bool to register the system even if it is already registered. |
 | ovirt_repositories_rhsm_server_hostname    | UNDEF                 | Hostname of the RHSM server. By default it's used from rhsm configuration. |
+| ovirt_repositories_clear                   | False                 | If True all repositories will be unregistered before registering new ones. |
 
 
 Dependencies
