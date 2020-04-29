@@ -5,5 +5,5 @@ ovirt_repositories_force_register: False
 ovirt_repositories_clear: False
 ovirt_repositories_ovirt_version: 4.3
 ovirt_repositories_target_host: engine
-ovirt_repositories_ovirt_dnf_modules: [pki-deps, postgresql:12, javapackages-tools]
-ovirt_repositories_rh_dnf_modules: [pki-deps, postgresql:12]
+ovirt_repositories_ovirt_dnf_modules: ["pki-deps", "postgresql:12", "javapackages-tools"]
+ovirt_repositories_rh_dnf_modules: ["pki-deps", "postgresql:12"]
