@@ -45,8 +45,6 @@ Role Variables
 | ovirt_repositories_force_register          | False                 | Bool to register the system even if it is already registered. |
 | ovirt_repositories_rhsm_server_hostname    | UNDEF                 | Hostname of the RHSM server. By default it's used from rhsm configuration. |
 | ovirt_repositories_clear                   | False                 | If True all repositories will be unregistered before registering new ones. |
-| ovirt_repositories_ovirt_dnf_modules       | ["pki-deps", "postgresql:12", "javapackages-tools"]                 | List of dnf modules which will be enabled and are required by ovirt. |
-| ovirt_repositories_rh_dnf_modules          | ["pki-deps", "postgresql:12"]                 | List of dnf modules which will be enabled and are required by RHV. |
 
 
 Dependencies
