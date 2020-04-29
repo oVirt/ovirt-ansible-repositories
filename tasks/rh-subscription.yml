@@ -18,6 +18,10 @@
     name: subscription-manager
     state: present
 
+- name: Enable dnf modules
+  command: "dnf module enable -y {{ ovirt_repositories_rh_dnf_modules | join(' ') }}"
+  when: ovirt_repositories_ovirt_version >= 4.4
+
 - name: Register and subscribe to multiple pool IDs
   redhat_subscription:
     state: present
