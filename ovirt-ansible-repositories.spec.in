@@ -51,6 +51,9 @@ sh build.sh install
 %license LICENSE
 
 %changelog
+* Tue May 5 2020 Martin Necas <mnecas@redhat.com> - 1.2.2-1
+- Add dnf modules
+
 * Mon Dec 2 2019 Martin Necas <mnecas@redhat.com> - 1.2.1-1
 - Add build for el8.
 
