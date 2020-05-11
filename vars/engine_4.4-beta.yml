@@ -4,4 +4,4 @@ ovirt_repositories_subscription_manager_repos:
   - rhv-4-manager-beta-for-rhel-8-x86_64-rpms
   - rhv-4-tools-beta-for-rhel-8-x86_64-rpms
   - ansible-2.9-for-rhel-8-x86_64-rpms
-  - jb-eap-7.2-for-rhel-8-x86_64-rpms
+  - jb-eap-7.3-for-rhel-8-x86_64-rpms
