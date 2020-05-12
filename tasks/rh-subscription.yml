@@ -55,6 +55,7 @@
   rhsm_repository:
     name: "{{ item }}"
     state: "enabled"
+  ignore_errors: True
   with_items: "{{ ovirt_repositories_subscription_manager_repos | default([]) }}"
 
 - name: Enable dnf modules
