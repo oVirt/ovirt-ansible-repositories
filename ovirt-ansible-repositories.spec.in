@@ -51,6 +51,9 @@ sh build.sh install
 %license LICENSE
 
 %changelog
+* Wed May 13 2020 Martin Necas <mnecas@redhat.com> - 1.2.3-1
+- Add 4.4-beta repositories
+
 * Tue May 5 2020 Martin Necas <mnecas@redhat.com> - 1.2.2-1
 - Add dnf modules
 
