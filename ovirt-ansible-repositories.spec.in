@@ -51,6 +51,10 @@ sh build.sh install
 %license LICENSE
 
 %changelog
+* Tue Jul 14 2020 Martin Necas <mnecas@redhat.com> - 1.2.4-1
+- Remove 4.4-beta repositories
+- Add 4.4 repositories
+
 * Wed May 13 2020 Martin Necas <mnecas@redhat.com> - 1.2.3-1
 - Add 4.4-beta repositories
 
