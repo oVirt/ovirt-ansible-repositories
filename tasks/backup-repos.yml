@@ -18,6 +18,7 @@
     src: "{{ item.path }}"
     dest: "{{ ovirt_repositories_repos_backup_path }}"
     remote_src: yes
+    mode: preserve
   with_items: "{{ files_to_backup.files }}"
   tags:
     - skip_ansible_lint
