@@ -51,6 +51,9 @@ sh build.sh install
 %license LICENSE
 
 %changelog
+* Thu Aug 27 2020 Martin Necas <mnecas@redhat.com> - 1.1.6-1
+- Fix 4.3 ansible repositories
+
 * Tue Feb 19 2019 Ondra Machacek <omachace@redhat.com> - 1.1.5-1
 - Add 4.3 repositories
 
