@@ -38,13 +38,9 @@
     server_hostname: "{{ ovirt_repositories_rhsm_server_hostname | default(omit) }}"
   when: ovirt_repositories_pools is defined
 
-- debug: var=ovirt_repositories_subscription_manager_repos
-
 - name: "Include {{ ovirt_repositories_target_host }}_{{ ovirt_repositories_ovirt_version }}.yml variables"
   include_vars: "{{ ovirt_repositories_target_host }}_{{ ovirt_repositories_ovirt_version }}.yml"
   when: ovirt_repositories_subscription_manager_repos | list | length == 0
-
-- debug: var=ovirt_repositories_subscription_manager_repos
 
 - name: Disable all repositories
   rhsm_repository:
