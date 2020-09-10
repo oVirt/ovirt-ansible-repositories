@@ -1,6 +1,8 @@
 oVirt Repositories
 ==================
 
+## This role has been migrated to [oVirt Ansible Collection](https://github.com/ovirt/ovirt-ansible-collection), please use latest version from there. This repository is now readonly and no longer used for active development
+
 The `ovirt.repositories` role is used to set the repositories required for
 oVirt engine or host installation. By default it copies content of
 /etc/yum.repos.d/ to /tmp/repo-backup-{{timestamp}}, so it's easy to undo that operation.
