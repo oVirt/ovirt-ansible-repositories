@@ -51,11 +51,6 @@ Role Variables
 | ovirt_repositories_clear                   | False                 | If True all repositories will be unregistered before registering new ones. |
 
 
-Dependencies
-------------
-
-No.
-
 Example Playbook
 ----------------
 
